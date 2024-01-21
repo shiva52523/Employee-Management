@@ -1,0 +1,126 @@
+{% extends 'app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+<!-- <h2 align="center">Employee Registration...!!!</h2>
+<hr>
+<div class="i-am-centered" align="center">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <table>
+                <tr>
+                    <td> <label>Name:</label></td>
+                    <td>{{ form.name }}</td>
+                </tr>
+                <tr>
+        </div>
+        <tr>
+            <div class="form-group">
+                <td><label>Email:</label></td>
+                <td>{{ form.email }}</td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td><label>Date of Birth:</label></td>
+                <td>{{ form.date_of_birth }}</td>
+            </div>
+        </tr>
+
+        <tr>
+            <div class="form-group">
+                <td><label>Date of Join:</label></td>
+                <td>{{ form.date_of_join }}</td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td> <label>Gender:</label></td>
+                <td> {{ form.gender }}</td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td><label>Designation:</label></td>
+                <td>{{ form.designation }} </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+                <td><label>Reporting Manager:</label></td>
+                <td> {{ form.reporting_manager }}</td>
+            </div>
+        </tr>
+        <br>
+        <br>
+        </table>
+        <br>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2"> Submit </button>
+        </div>
+    </form>
+    </table>
+</div> -->
+
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 10px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+                        <form method="POST">
+                            {%csrf_token%}
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        {{form.name|as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        {{form.email| as_crispy_field}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        {{ form.date_of_birth | as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    {{form.date_of_join | as_crispy_field}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 pb-2">
+                                        <div class="form-outline">
+                                            {{form.gender | as_crispy_field}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 pb-2">
+                                        <div class="form-outline">
+                                            {{form.designation|as_crispy_field}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                            {{form.reporting_manager | as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-2">
+                                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
